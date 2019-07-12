@@ -30,12 +30,17 @@ import org.apache.rocketmq.common.message.MessageExt;
  */
 public class Consumer {
 
+
+    public static final String groupName = "test-project-group-name";
+    public static final String nameserverAddr = "127.0.0.1:9876";
+
     public static void main(String[] args) throws InterruptedException, MQClientException {
 
         /*
          * Instantiate with specified consumer group name.
          */
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name_4");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name");
+        consumer.setNamesrvAddr(nameserverAddr);
 
         /*
          * Specify name server addresses.
